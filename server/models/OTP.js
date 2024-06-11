@@ -18,6 +18,7 @@ const OTPSchema = new mongoose.Schema({
 });
 
 //a function -> to send emails of otp by using nodemailer which was created in "/utils/mailSender"
+// * * Always return good console messages. developer should know where the program is not working
 async function sendVerificationEmail(email, otp) {
   try {
     const mailResponse = await mailSender(
@@ -32,6 +33,7 @@ async function sendVerificationEmail(email, otp) {
   }
 }
 
+// * * Pre save middleware means otp.create hone se pehle ye execute hoga
 OTPSchema.pre('save', async function (next) {
   if (this.isNew) {
     await sendVerificationEmail(this.email, this.otp);
