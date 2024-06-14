@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema(
   {
@@ -17,24 +17,33 @@ const userSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
+
     password: {
       type: String,
       required: true,
     },
     accountType: {
       type: String,
-      enum: ['Admin', 'Student', 'Instructor'],
+      enum: ["Admin", "Student", "Instructor"],
       required: true,
+    },
+    active: {
+      type: Boolean,
+      default: true,
+    },
+    approved: {
+      type: Boolean,
+      default: true,
     },
     additionalDetails: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
-      ref: 'Profile',
+      ref: "Profile",
     },
     courses: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Course',
+        ref: "Course",
       },
     ],
     token: {
@@ -50,11 +59,11 @@ const userSchema = new mongoose.Schema(
     courseProgress: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'courseProgress',
+        ref: "courseProgress",
       },
     ],
   },
   { timestamps: true }
 );
 
-module.exports = mongoose.model('user', userSchema);
+module.exports = mongoose.model("user", userSchema);
