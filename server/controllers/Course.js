@@ -14,11 +14,14 @@ exports.createCourse = async (req, res) => {
       price,
       tag: _tag,
       category,
+      status,
+      instructions: _instructions,
     } = req.body;
 
     const thumbnail = req.files.thumbnailImage;
 
     const tag = JSON.parse(_tag);
+    const instructions = JSON.parse(_instructions);
 
     if (
       !courseName ||
@@ -27,11 +30,15 @@ exports.createCourse = async (req, res) => {
       !price ||
       !tag.length ||
       !thumbnail ||
-      !category
+      !category ||
+      !instructions.length
     ) {
       return res
         .status(400)
         .json({ success: false, message: "All Fields are Mandatory" });
+    }
+    if (!status || status === undefined) {
+      status = "Draft";
     }
 
     const instructorDetails = await User.findById(userId, {
@@ -67,6 +74,8 @@ exports.createCourse = async (req, res) => {
       tag,
       category: categoryDetails._id,
       thumbnail: thumbnailImage.secure_url,
+      status: status,
+      instructions,
     });
 
     await User.findByIdAndUpdate(
@@ -99,7 +108,7 @@ exports.createCourse = async (req, res) => {
 exports.getAllCourses = async (req, res) => {
   try {
     const allCourses = await Course.find(
-      {},
+      { status: "Published" },
       {
         courseName: true,
         price: true,
