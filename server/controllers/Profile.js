@@ -1,10 +1,14 @@
+const mongoose = require("mongoose");
 const Profile = require("../models/Profile");
+const CourseProgress = require("../models/CourseProgress");
 const Course = require("../models/Course");
 const User = require("../models/User");
 
 exports.updateProfile = async (req, res) => {
   try {
     const {
+      firstName = "",
+      lastName = "",
       dateOfBirth = "",
       about = "",
       contactNumber = "",
@@ -12,15 +16,12 @@ exports.updateProfile = async (req, res) => {
     } = req.body;
     const id = req.user.id;
 
-    if (!contactNumber || !about || !dateOfBirth || !gender) {
-      return res.status(404).json({
-        success: false,
-        message: "All fields are required",
-      });
-    }
-
     const userDetails = await User.findById(id);
     const profile = await Profile.findById(userDetails.additionalDetails);
+
+    const user = await User.findByIdAndUpdate(id, { firstName, lastName });
+
+    await user.save();
 
     profile.dateOfBirth = dateOfBirth;
     profile.about = about;
@@ -29,10 +30,14 @@ exports.updateProfile = async (req, res) => {
 
     await profile.save();
 
+    const updatedUserDetails = await User.findById(id)
+      .populate("additionalDetails")
+      .exec();
+
     return res.json({
       success: true,
       message: "Profile updated successfully",
-      profile,
+      updatedUserDetails,
     });
   } catch (error) {
     console.log(error);
@@ -57,7 +62,7 @@ exports.deleteAccount = async (req, res) => {
     }
 
     await Profile.findByIdAndDelete({
-      _id: user.additionalDetails,
+      _id: new mongoose.Types.ObjectId(user.additionalDetails),
     });
 
     for (const courseId of user.courses) {
@@ -74,6 +79,8 @@ exports.deleteAccount = async (req, res) => {
       success: true,
       message: "User deleted successfully",
     });
+
+    await CourseProgress.deleteMany({ userId: id });
   } catch (error) {
     res
       .status(500)
