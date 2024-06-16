@@ -67,8 +67,8 @@ exports.paymentSuccessEmail = (name, amount, orderId, paymentId) => {
         
         <body>
             <div class="container">
-                <a href="https://skillcode-edtech-project.vercel.app"><img class="logo"
-                src="/server/assets/logo.jpeg" alt="SkillCode Logo"></a>
+            <a href="https://skillcode-edtech-project.vercel.app"><img class="logo"
+            src="https://github.com/Rahilsamani/Ed/blob/main/server/assets/logo.jpeg" alt="SkillCode Logo"></a>
                 <div class="message">Course Payment Confirmation</div>
                 <div class="body">
                     <p>Dear ${name},</p>
