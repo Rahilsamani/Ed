@@ -20,7 +20,7 @@ const resetPasswordToken = async (req, res) => {
       { email: email },
       {
         token: token,
-        resetPasswordExpires: Date.now() + 0.5 * 60 * 60 * 1000,  // 1 hrs expiry
+        resetPasswordExpires: Date.now() + 10 * 60 * 1000,  // 10 minute expiry
       },
       { new: true }
     );

@@ -53,6 +53,7 @@ exports.updateProfile = async (req, res) => {
 
 // TODO: Schedule the delete user task
 // TODO: Crown Job
+// TODO: Delete profile photo from cloudinary also
 exports.deleteAccount = async (req, res) => {
   try {
     const id = req.user.id;

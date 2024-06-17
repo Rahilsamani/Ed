@@ -7,6 +7,7 @@ const { uploadImageToCloudinary } = require("../utils/imageUploader");
 const CourseProgress = require("../models/CourseProgress");
 const { convertSecondsToDuration } = require("../utils/secToDuration");
 
+// TODO: Course Can be published after the admin approval only
 // Function to create a new course
 exports.createCourse = async (req, res) => {
   try {
@@ -334,6 +335,7 @@ exports.getInstructorCourses = async (req, res) => {
 };
 
 // Delete the Course
+// TODO: Delete video from cloudinary also
 exports.deleteCourse = async (req, res) => {
   try {
     const { courseId } = req.body;

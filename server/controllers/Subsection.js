@@ -88,6 +88,7 @@ exports.updateSubSection = async (req, res) => {
   }
 };
 
+// TODO: Delete video from cloudinary also
 exports.deleteSubSection = async (req, res) => {
   try {
     const { subSectionId, sectionId } = req.body;
