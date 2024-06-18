@@ -4,6 +4,7 @@ import HighlightText from "../components/core/Homepage/HighlightText";
 import CTAButton from "../components/core/Homepage/Button";
 import Banner from "../assets/Images/banner.mp4";
 import CodeBlocks from "../components/core/Homepage/CodeBlocks";
+import Footer from "../components/common/Footer";
 
 const Home = () => {
   return (
@@ -98,6 +99,8 @@ const Home = () => {
           />
         </div>
       </div>
+      {/*Footer */}
+      <Footer />
     </div>
   );
 };
