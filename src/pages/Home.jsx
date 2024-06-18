@@ -7,6 +7,7 @@ import CodeBlocks from "../components/core/Homepage/CodeBlocks";
 import Footer from "../components/common/Footer";
 import TimelineSection from "../components/core/Homepage/TimelineSection";
 import LearningLanguageSection from "../components/core/Homepage/LearningLanguageSection";
+import InstructorSection from "../components/core/Homepage/InstructorSection";
 
 const Home = () => {
   return (
@@ -142,6 +143,14 @@ const Home = () => {
           <TimelineSection />
           <LearningLanguageSection />
         </div>
+      </div>
+
+      {/*Section 3 */}
+      <div className="relative mx-auto my-20 flex w-11/12 max-w-maxContent flex-col items-center justify-between gap-8 bg-richblack-900 text-white">
+        <InstructorSection />
+        <h1 className="text-center text-4xl font-semibold mt-8">
+          Reviews from other learners
+        </h1>
       </div>
 
       {/*Footer */}

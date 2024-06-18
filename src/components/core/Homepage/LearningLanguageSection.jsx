@@ -21,17 +21,17 @@ const LearningLanguageSection = () => {
         <div className="flex flex-col lg:flex-row items-center justify-center mt-8 lg:mt-0">
           <img
             src={know_your_progress}
-            alt="KNowYourProgressImage"
+            alt="KnowYourProgressImage"
             className="object-contain lg:-mr-32"
           />
           <img
             src={compare_with_others}
-            alt="KNowYourProgressImage"
+            alt="KnowYourProgressImage"
             className="object-contain lg:-mb-10 lg:-mt-0 -mt-12"
           />
           <img
             src={plan_your_lesson}
-            alt="KNowYourProgressImage"
+            alt="KnowYourProgressImage"
             className="object-contain lg:-ml-36 lg:-mt-5 -mt-16"
           />
         </div>
