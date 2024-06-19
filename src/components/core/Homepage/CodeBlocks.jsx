@@ -37,7 +37,7 @@ const CodeBlocks = ({
       </div>
 
       {/*Right part*/}
-      <div className="h-fit code-border flex flex-row py-3 text-[10px] sm:text-sm leading-[18px] sm:leading-6 relative w-[100%] lg:w-[470px] border border-richblack-700">
+      <div className="h-fit code-border flex flex-row py-3 text-[10px] sm:text-sm leading-[18px] sm:leading-6 relative w-[100%] lg:w-[470px]">
         {backgroundGradient}
         <div className="text-center flex flex-col w-[10%] select-none text-richblack-400 font-inter font-bold ">
           <p>1</p>
