@@ -1,15 +1,18 @@
 import { useState } from "react";
 import { BiArrowBack } from "react-icons/bi";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { getPasswordResetToken } from "../services/operations/authAPI";
 
 function ForgotPassword() {
   const [email, setEmail] = useState("");
   const [emailSent, setEmailSent] = useState(false);
+  const dispatch = useDispatch();
   const { loading } = useSelector((state) => state.auth);
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
+    dispatch(getPasswordResetToken(email, setEmailSent));
   };
 
   return (

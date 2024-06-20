@@ -5,7 +5,7 @@ import { setUser } from "../../slices/profileSlice";
 import { apiConnector } from "../apiConnector";
 import { endpoints } from "../apis";
 
-const { SENDOTP_API, SIGNUP_API, LOGIN_API } = endpoints;
+const { SENDOTP_API, SIGNUP_API, LOGIN_API, RESETPASSTOKEN_API } = endpoints;
 
 export function sendOtp(email, navigate) {
   return async (dispatch) => {
@@ -116,3 +116,27 @@ export function logout(navigate) {
     navigate("/");
   };
 }
+
+export function getPasswordResetToken(email, setEmailSent) {
+  return async (dispatch) => {
+    dispatch(setLoading(true));
+    try {
+      const response = await apiConnector("POST", RESETPASSTOKEN_API, {
+        email,
+      });
+      console.log("RESET PASSWORD TOKEN RESPONSE....", response);
+
+      if (!response.data.success) {
+        throw new Error(response.data.message);
+      }
+
+      toast.success("Reset Email Sent");
+      setEmailSent(true);
+    } catch (error) {
+      console.log("RESET PASSWORD TOKEN Error", error);
+      toast.error("Failed to send email for resetting password");
+    }
+    dispatch(setLoading(false));
+  };
+}
+
