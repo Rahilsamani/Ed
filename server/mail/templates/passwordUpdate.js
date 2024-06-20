@@ -27,6 +27,7 @@ exports.passwordUpdated = (email, name) => {
               .logo {
                   max-width: 200px;
                   margin-bottom: 20px;
+                  border-radius: 30px;
               }
       
               .message {

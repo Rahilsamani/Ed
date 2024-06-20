@@ -13,6 +13,7 @@ import Error from "./pages/Error";
 import UpdatePassword from "./pages/UpdatePassword";
 import VerifyEmail from "./pages/VerifyEmail";
 import Contact from "./pages/Contact";
+import About from "./pages/About";
 
 function App() {
   return (
@@ -60,6 +61,16 @@ function App() {
             </OpenRoute>
           }
         />
+
+        <Route
+          path="about"
+          element={
+            <OpenRoute>
+              <About />
+            </OpenRoute>
+          }
+        />
+
         <Route path="/contact" element={<Contact />} />
 
         <Route path="*" element={<Error />} />
