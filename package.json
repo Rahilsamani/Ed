@@ -2,6 +2,7 @@
   "name": "skillcode",
   "version": "0.1.0",
   "dependencies": {
+    "@ramonak/react-progress-bar": "^5.2.0",
     "@reduxjs/toolkit": "^2.2.5",
     "axios": "^1.7.2",
     "concurrently": "^8.2.2",
