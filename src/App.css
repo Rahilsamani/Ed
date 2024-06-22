@@ -170,3 +170,10 @@ body {
 .lable-style {
   @apply text-[14px] text-richblack-5;
 }
+
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}

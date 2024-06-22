@@ -22,6 +22,7 @@ import Dashboard from "./pages/Dashboard";
 import Settings from "./components/core/Dashboard/Settings";
 import EnrolledCourses from "./components/core/Dashboard/EnrolledCourses";
 import Cart from "./components/core/Dashboard/Cart";
+import AddCourse from "./components/core/Dashboard/AddCourse";
 
 import { getUserDetails } from "./services/operations/profileAPI";
 import { ACCOUNT_TYPE } from "./utils/constants";
@@ -113,6 +114,12 @@ function App() {
                 path="dashboard/enrolled-courses"
                 element={<EnrolledCourses />}
               />
+            </>
+          )}
+
+          {user?.accountType === ACCOUNT_TYPE.INSTRUCTOR && (
+            <>
+              <Route path="dashboard/add-course" element={<AddCourse />} />
             </>
           )}
         </Route>

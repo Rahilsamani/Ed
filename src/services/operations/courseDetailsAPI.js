@@ -1,6 +1,7 @@
 import { toast } from "react-hot-toast";
-import { apiConnector } from "../apiconnector";
+import { apiConnector } from "../apiConnector";
 import { courseEndpoints } from "../apis";
+import { setLoading } from "../../slices/courseSlice";
 
 const {
   COURSE_DETAILS_API,
@@ -310,7 +311,7 @@ export const deleteCourse = async (data, token) => {
 };
 
 // get full details of a course
-export const getFullDetailsOfCourse = async (courseId, token) => {
+export const getFullDetailsOfCourse = async (courseId, token, dispatch) => {
   const toastId = toast.loading("Loading...");
   dispatch(setLoading(true));
   let result = null;
