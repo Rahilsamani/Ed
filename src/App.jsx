@@ -26,6 +26,7 @@ import AddCourse from "./components/core/Dashboard/AddCourse";
 
 import { getUserDetails } from "./services/operations/profileAPI";
 import { ACCOUNT_TYPE } from "./utils/constants";
+import MyCourses from "./components/core/Dashboard/MyCourses";
 
 function App() {
   const dispatch = useDispatch();
@@ -120,6 +121,7 @@ function App() {
           {user?.accountType === ACCOUNT_TYPE.INSTRUCTOR && (
             <>
               <Route path="dashboard/add-course" element={<AddCourse />} />
+              <Route path="dashboard/my-courses" element={<MyCourses />} />
             </>
           )}
         </Route>
