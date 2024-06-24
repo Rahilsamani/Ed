@@ -64,7 +64,7 @@ export async function buyCourse(
       currency: orderResponse.data.message.currency,
       amount: `${orderResponse.data.message.amount}`,
       order_id: orderResponse.data.message.id,
-      name: "SkillCode",
+      name: "Skillcode",
       description: "Thank You for Purchasing the Course",
       image: rzpLogo,
       prefill: {

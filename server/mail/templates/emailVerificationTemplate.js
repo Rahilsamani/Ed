@@ -68,11 +68,11 @@ const otpTemplate = (otp) => {
       <body>
           <div class="container">
           <a href="https://skillcode-edtech-project.vercel.app"><img class="logo"
-          src="https://raw.githubusercontent.com/Rahilsamani/Ed/main/server/assets/logo.jpeg" alt="SkillCode Logo"></a>
+          src="https://raw.githubusercontent.com/Rahilsamani/Ed/main/server/assets/logo.jpeg" alt="Skillcode Logo"></a>
               <div class="message">OTP Verification Email</div>
               <div class="body">
                   <p>Dear User,</p>
-                  <p>Thank you for registering with SkillCode. To complete your registration, please use the following OTP
+                  <p>Thank you for registering with Skillcode. To complete your registration, please use the following OTP
                       (One-Time Password) to verify your account:</p>
                   <h2 class="highlight">${otp}</h2>
                   <p>This OTP is valid for 5 minutes. If you did not request this verification, please disregard this email.

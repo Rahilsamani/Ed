@@ -24,7 +24,7 @@ async function sendVerificationEmail(email, otp) {
   try {
     const mailResponse = await mailSender(
       email,
-      "Verification Email from SkillCode",
+      "Verification Email from Skillcode",
       emailTemplate(otp)
     );
     console.log("Email sent Successfully: ", mailResponse);
