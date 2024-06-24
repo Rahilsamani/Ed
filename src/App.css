@@ -191,3 +191,8 @@ details > summary::-webkit-details-marker {
 .section_heading {
   @apply text-2xl font-bold text-richblack-5 lg:text-4xl;
 }
+
+.swiper-slide {
+  width: 100%;
+  height: 100%;
+}
