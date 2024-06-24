@@ -37,7 +37,6 @@ export default function ChangeProfilePicture() {
 
   const handleFileUpload = () => {
     try {
-      console.log("uploading...");
       setLoading(true);
       const formData = new FormData();
       formData.append("displayPicture", imageFile);

@@ -20,7 +20,7 @@ const resetPasswordToken = async (req, res) => {
       { email: email },
       {
         token: token,
-        resetPasswordExpires: Date.now() + 10 * 60 * 1000,  // 10 minute expiry
+        resetPasswordExpires: Date.now() + 10 * 60 * 1000, // 10 minute expiry
       },
       { new: true }
     );
@@ -34,13 +34,14 @@ const resetPasswordToken = async (req, res) => {
 
     return res.json({
       success: true,
-      message: "Email sent successfully, please check email and change password",
+      message:
+        "Email sent successfully, please check email and change password",
     });
   } catch (error) {
-    console.log(error);
     return res.status(500).json({
       success: false,
       message: "Something went wrong while sending reset pwd mail",
+      error: error,
     });
   }
 };
@@ -78,10 +79,10 @@ const resetPassword = async (req, res) => {
       message: "Password reset successful",
     });
   } catch (error) {
-    console.log(error);
     return res.status(500).json({
       success: false,
       message: "Something went wrong while sending reset password mail",
+      error: error,
     });
   }
 };

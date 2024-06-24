@@ -56,7 +56,6 @@ export async function buyCourse(
     if (!orderResponse.data.success) {
       throw new Error(orderResponse.data.message);
     }
-    console.log("PRINTING orderResponse", orderResponse);
 
     //options
     const options = {

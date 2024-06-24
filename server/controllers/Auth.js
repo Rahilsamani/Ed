@@ -180,7 +180,6 @@ const sendOTP = async (req, res) => {
       lowerCaseAlphabets: false,
       specialChars: false,
     });
-    console.log("OTP generated: ", otp);
 
     let result = await OTP.findOne({ otp: otp });
     while (result) {
@@ -194,7 +193,6 @@ const sendOTP = async (req, res) => {
     const otpPayload = { email, otp };
 
     const otpBody = await OTP.create(otpPayload);
-    console.log("OTP Body", otpBody);
 
     res.status(200).json({
       success: true,
@@ -249,7 +247,6 @@ const changePassword = async (req, res) => {
           `Password updated successfully for ${updatedUserDetails.firstName} ${updatedUserDetails.lastName}`
         )
       );
-      console.log("Email sent successfully:", emailResponse.response);
     } catch (error) {
       return res.status(500).json({
         success: false,

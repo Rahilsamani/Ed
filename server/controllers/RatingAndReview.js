@@ -50,7 +50,6 @@ const createRating = async (req, res) => {
       ratingReview,
     });
   } catch (error) {
-    console.log(error);
     return res.status(500).json({
       success: false,
       message: error.message,
@@ -85,7 +84,6 @@ const getAverageRating = async (req, res) => {
       averageRating: 0,
     });
   } catch (error) {
-    console.log(error);
     return res.status(500).json({
       success: false,
       message: error.message,
@@ -113,7 +111,6 @@ const getAllRating = async (req, res) => {
       data: allReviews,
     });
   } catch (error) {
-    console.log(error);
     return res.status(500).json({
       success: false,
       message: error.message,

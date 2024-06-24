@@ -22,12 +22,11 @@ const OTPSchema = new mongoose.Schema({
 // * * Always return good console messages. developer should know where the program is not working
 async function sendVerificationEmail(email, otp) {
   try {
-    const mailResponse = await mailSender(
+    await mailSender(
       email,
       "Verification Email from Skillcode",
       emailTemplate(otp)
     );
-    console.log("Email sent Successfully: ", mailResponse);
   } catch (error) {
     console.log("error occured while sending mails: ", error);
     throw error;
@@ -35,7 +34,7 @@ async function sendVerificationEmail(email, otp) {
 }
 
 // * * Pre save middleware means otp.create hone se pehle ye execute hoga
-OTPSchema.pre('save', async function (next) {
+OTPSchema.pre("save", async function (next) {
   if (this.isNew) {
     await sendVerificationEmail(this.email, this.otp);
   }

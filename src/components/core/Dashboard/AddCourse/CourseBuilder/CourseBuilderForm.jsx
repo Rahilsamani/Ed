@@ -31,7 +31,6 @@ export default function CourseBuilderForm() {
   const dispatch = useDispatch();
 
   const onSubmit = async (data) => {
-    console.log(data);
     setLoading(true);
     let response;
 
@@ -53,7 +52,6 @@ export default function CourseBuilderForm() {
         token,
         { new: true }
       );
-      console.log("save", response);
     }
 
     if (response) {
