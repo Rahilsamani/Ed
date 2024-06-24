@@ -9,6 +9,7 @@ import TimelineSection from "../components/core/Homepage/TimelineSection";
 import LearningLanguageSection from "../components/core/Homepage/LearningLanguageSection";
 import InstructorSection from "../components/core/Homepage/InstructorSection";
 import ExploreMore from "../components/core/Homepage/ExploreMore";
+import ReviewSlider from "../components/common/ReviewSlider";
 
 const Home = () => {
   return (
@@ -153,6 +154,7 @@ const Home = () => {
         <InstructorSection />
         <h1 className="text-center text-4xl font-semibold mt-8">
           Reviews from other learners
+          <ReviewSlider />
         </h1>
       </div>
 
