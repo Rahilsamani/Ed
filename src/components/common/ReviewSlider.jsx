@@ -28,11 +28,22 @@ function ReviewSlider() {
   }, []);
 
   return (
-    <div className="text-white">
+    <div className="text-white px-5">
       <div className="my-[50px] h-[184px] max-w-maxContentTab lg:max-w-maxContent">
         <Swiper
           className="w-full"
           slidesPerView={1}
+          breakpoints={{
+            640: {
+              slidesPerView: 1,
+            },
+            768: {
+              slidesPerView: 2,
+            },
+            1024: {
+              slidesPerView: 3,
+            },
+          }}
           spaceBetween={25}
           loop={true}
           freeMode={true}
@@ -41,7 +52,7 @@ function ReviewSlider() {
           {reviews.map((review, i) => {
             return (
               <SwiperSlide key={i}>
-                <div className="flex flex-col gap-3 bg-richblack-800 p-3 text-[14px] text-richblack-25">
+                <div className="flex flex-col gap-3 bg-richblack-800 p-3 text-start text-[14px] text-richblack-25">
                   <div className="flex items-center gap-4">
                     <img
                       src={
@@ -53,11 +64,13 @@ function ReviewSlider() {
                       className="h-9 w-9 rounded-full object-cover"
                     />
 
-                    <div className="flex flex-col">
-                      <h1 className="font-semibold text-richblack-5">{`${review?.user?.firstName} ${review?.user?.lastName}`}</h1>
-                      <h2 className="text-[12px] font-medium text-richblack-500">
-                        {review?.course?.courseName}
-                      </h2>
+                    <div className="flex justify-center items-center text-start">
+                      <div>
+                        <p className="font-semibold text-richblack-5">{`${review?.user?.firstName} ${review?.user?.lastName}`}</p>
+                        <p className="text-[12px] font-medium text-richblack-500">
+                          {review?.course?.courseName}
+                        </p>
+                      </div>
                     </div>
                   </div>
 
