@@ -25,11 +25,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: [
-      "https://skillcode.vercel.app/",
-      "https://skillcode-rahil-ahmeds-projects-248c0603.vercel.app/",
-      "https://skillcode-git-main-rahil-ahmeds-projects-248c0603.vercel.app/",
-    ],
+    origin: "https://skillcode.vercel.app",
     credentials: true,
   })
 );
