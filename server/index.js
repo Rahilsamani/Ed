@@ -20,27 +20,16 @@ const PORT = process.env.PORT || 4000;
 // Connect Database
 database.connect();
 
-var whitelist = [
-  "https://skillcode.vercel.app/",
-  "https://skillcode-rahil-ahmeds-projects-248c0603.vercel.app/",
-  "https://skillcode-git-main-rahil-ahmeds-projects-248c0603.vercel.app/",
-];
-var corsOptionsDelegate = function (req, callback) {
-  var corsOptions;
-  if (whitelist.indexOf(req.header("Origin")) !== -1) {
-    corsOptions = { origin: true }; // reflect (enable) the requested origin in the CORS response
-  } else {
-    corsOptions = { origin: false }; // disable CORS for this request
-  }
-  callback(null, corsOptions); // callback expects two parameters: error and options
-};
-
 // Add Middlewares
 app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin:corsOptionsDelegate,
+    origin: [
+      "https://skillcode.vercel.app/",
+      "https://skillcode-rahil-ahmeds-projects-248c0603.vercel.app/",
+      "https://skillcode-git-main-rahil-ahmeds-projects-248c0603.vercel.app/",
+    ],
     credentials: true,
   })
 );
