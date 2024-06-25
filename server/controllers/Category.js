@@ -1,11 +1,8 @@
 const Category = require("../models/Category");
-const nodeCache = require("../config/nodeCache");
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
-
-const key = "categories";
 
 exports.createCategory = async (req, res) => {
   try {
@@ -21,8 +18,6 @@ exports.createCategory = async (req, res) => {
       description: description,
     });
 
-    nodeCache.del(key);
-
     return res
       .status(200)
       .json({ success: true, message: "Categorys Created Successfully" });
@@ -36,14 +31,7 @@ exports.createCategory = async (req, res) => {
 
 exports.showAllCategories = async (req, res) => {
   try {
-    let allCategorys = [];
-
-    if (nodeCache.has(key)) {
-      allCategorys = nodeCache.get(key);
-    } else {
-      allCategorys = await Category.find({}).populate("courses");
-      nodeCache.set(key, allCategorys);
-    }
+    let allCategorys = await Category.find({}).populate("courses");
 
     return res.status(200).json({
       success: true,
